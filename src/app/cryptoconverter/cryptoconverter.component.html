@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6"><br><br>
+        <h3>Cryptocurrency Converter Calculator</h3><hr>
+
+        <form [formGroup]="cryptoForm" (ngSubmit)="onSubmit()"> <!--[formGroup]="loginForm"-->
+            
+
+
+                <div class="form-group">
+                    <label>Enter Amount To Convert:</label>
+                    <input type="text" formControlName="amount" class="form-control" />
+                   
+                </div><br><br>
+
+                <div class="form-group">
+                    <label>From:</label>
+                    <select  class="form-control" placeholder="fromCurrencylist" (change)="changefromCurrency($event)" formControlName="fromCurrencyVal">
+                        <option *ngFor="let i of fromCurrencylist" [value]="i.id">
+                        {{i.name}} {{i.sign}} {{i.symbol}}
+                        </option>
+                    </select><br><br>
+                </div>
+
+                
+                <div class="form-group">
+                    <label>To:</label>
+                    <select class="form-control" placeholder="ToCurrencylist" (change)="changetoCurrency($event)" formControlName="toCurrencyVal"> 
+                        <option *ngFor="let i of fromCurrencylist" [value]="i.id">
+                        {{i.name}} {{i.sign}} {{i.symbol}}
+                        </option>
+                    </select>
+                </div>
+                
+                <br><br>
+                <div class="form-group">
+                    <label>Result:</label>
+                    <h3 class="text-success">{{convertedprice}}</h3>
+                   
+                </div><br><br>
+
+
+           
+
+
+            <br>
+           
+            <button type="submit" value="convert" class="btn btn-primary">Convert</button>
+          </form>
+    </div>
+</div>
